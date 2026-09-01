@@ -1,0 +1,117 @@
+{
+  "campanhas": [
+    {
+      "id": "botox-day-01",
+      "nome": "Botox Day — Abertura",
+      "tipo": "imagem",
+      "arquivo": "midias/botox_day_01.png",
+      "duracaoSegundos": 5,
+      "inicio": "2026-08-31",
+      "fim": "2026-09-05",
+      "horaInicio": "07:00",
+      "horaFim": "23:00",
+      "diasSemana": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "prioridade": 30,
+      "ajuste": "conter",
+      "ativa": true
+    },
+    {
+      "id": "botox-day-02",
+      "nome": "Botox Day — Você + uma amiga",
+      "tipo": "imagem",
+      "arquivo": "midias/botox_day_02.png",
+      "duracaoSegundos": 5,
+      "inicio": "2026-08-31",
+      "fim": "2026-09-05",
+      "horaInicio": "07:00",
+      "horaFim": "23:00",
+      "diasSemana": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "prioridade": 30,
+      "ajuste": "conter",
+      "ativa": true
+    },
+    {
+      "id": "botox-day-03",
+      "nome": "Botox Day — Técnica e naturalidade",
+      "tipo": "imagem",
+      "arquivo": "midias/botox_day_03.png",
+      "duracaoSegundos": 5,
+      "inicio": "2026-08-31",
+      "fim": "2026-09-05",
+      "horaInicio": "07:00",
+      "horaFim": "23:00",
+      "diasSemana": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "prioridade": 30,
+      "ajuste": "conter",
+      "ativa": true
+    },
+    {
+      "id": "botox-day-04",
+      "nome": "Botox Day — Vagas limitadas",
+      "tipo": "imagem",
+      "arquivo": "midias/botox_day_04.png",
+      "duracaoSegundos": 6,
+      "inicio": "2026-08-31",
+      "fim": "2026-09-05",
+      "horaInicio": "07:00",
+      "horaFim": "23:00",
+      "diasSemana": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "prioridade": 30,
+      "ajuste": "conter",
+      "ativa": true
+    },
+    {
+      "id": "la-carvalho-experiencia",
+      "nome": "LA Carvalho Art — Experiência animada",
+      "tipo": "la_carvalho",
+      "duracaoSegundos": 28,
+      "inicio": "2026-08-01",
+      "fim": "2026-12-31",
+      "horaInicio": "00:00",
+      "horaFim": "23:59",
+      "diasSemana": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "prioridade": 10,
+      "ativa": true
+    }
+  ]
+}
