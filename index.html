@@ -1,0 +1,5678 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+<title>Rota Fácil</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #0f172a;
+    color: white;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+/* =========================
+TOPO
+========================= */
+
+.topo {
+    background: #111827;
+    border-bottom: 1px solid #334155;
+    padding: 14px 16px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.logo-app h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.versao {
+    margin-top: 4px;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    color: #94a3b8;
+}
+
+.data-hoje {
+    width: 100%;
+
+    font-size: 11px;
+
+    color: #64748b;
+}
+
+.topo-botoes {
+    display: flex;
+    gap: 6px;
+}
+
+button {
+    border: none;
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+.btn-topo {
+    padding: 8px 10px;
+
+    background: #334155;
+    color: white;
+
+    font-size: 11px;
+}
+
+.input-arquivo {
+    display: none;
+}
+
+/* =========================
+LAYOUT
+========================= */
+
+.painel {
+    padding: 12px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+}
+
+.quadrante {
+    background: #1e293b;
+
+    border-radius: 15px;
+
+    padding: 14px;
+}
+
+h2 {
+    margin: 0 0 12px;
+
+    font-size: 18px;
+}
+
+.subtitulo {
+    margin-top: 16px;
+    margin-bottom: 7px;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    color: #94a3b8;
+}
+
+/* =========================
+CAMPOS
+========================= */
+
+label {
+    display: block;
+
+    margin-top: 9px;
+    margin-bottom: 4px;
+
+    font-size: 12px;
+
+    color: #cbd5e1;
+}
+
+input,
+select {
+    width: 100%;
+
+    padding: 10px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #334155;
+
+    color: white;
+
+    font-size: 15px;
+}
+
+.duas-colunas {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+}
+
+.oculto {
+    display: none;
+}
+
+/* =========================
+BOTÕES
+========================= */
+
+.btn-adicionar {
+    width: 100%;
+
+    margin-top: 13px;
+
+    padding: 11px;
+
+    background: #3b82f6;
+
+    color: white;
+}
+
+.btn-salvar {
+    width: 100%;
+
+    margin-top: 14px;
+
+    padding: 12px;
+
+    background: #22c55e;
+
+    color: #052e16;
+
+    font-size: 15px;
+}
+
+.btn-cancelar {
+    width: 100%;
+
+    margin-top: 7px;
+
+    padding: 10px;
+
+    background: #475569;
+
+    color: white;
+
+    display: none;
+}
+
+.btn-detalhes {
+    background: #334155;
+
+    color: white;
+
+    padding: 7px 9px;
+
+    font-size: 11px;
+}
+
+.btn-editar {
+    background: #f59e0b;
+
+    color: #451a03;
+
+    padding: 7px 9px;
+
+    font-size: 11px;
+}
+
+.btn-excluir {
+    background: #ef4444;
+
+    color: white;
+
+    padding: 7px 9px;
+
+    font-size: 10px;
+}
+
+/* =========================
+CARDS
+========================= */
+
+.cards {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+}
+
+.card {
+    background: #334155;
+
+    border-radius: 10px;
+
+    padding: 11px;
+}
+
+.card span {
+    display: block;
+
+    font-size: 11px;
+
+    color: #cbd5e1;
+}
+
+.card strong {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 17px;
+}
+
+.card small {
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 10px;
+
+    color: #94a3b8;
+}
+
+/* =========================
+NOVOS PERCENTUAIS
+========================= */
+
+.percentuais {
+    margin-top: 10px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+}
+
+.percentual-card {
+    background: #0f172a;
+
+    border-radius: 10px;
+
+    padding: 10px;
+}
+
+.percentual-card span {
+    display: block;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+}
+
+.percentual-card strong {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 16px;
+}
+
+.percentual-card small {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 9px;
+
+    color: #64748b;
+}
+
+/* =========================
+PROGRESSO
+========================= */
+
+.progresso {
+    background: #0f172a;
+
+    margin-top: 9px;
+
+    padding: 10px;
+
+    border-radius: 10px;
+}
+
+.barra {
+    height: 10px;
+
+    margin-top: 8px;
+
+    background: #334155;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.barra-interna {
+    height: 100%;
+
+    width: 0%;
+
+    background: #22c55e;
+}
+
+.texto-menor {
+    margin-top: 7px;
+
+    color: #cbd5e1;
+
+    font-size: 11px;
+}
+
+/* =========================
+MOVIMENTOS
+========================= */
+
+.movimento-dia {
+    margin-top: 7px;
+
+    padding: 9px;
+
+    background: #334155;
+
+    border-radius: 9px;
+
+    display: grid;
+
+    grid-template-columns: 1fr auto;
+
+    gap: 8px;
+
+    align-items: center;
+}
+
+.movimento-info {
+    font-size: 12px;
+}
+
+.movimento-info small {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #94a3b8;
+}
+
+.ganho {
+    color: #86efac;
+}
+
+.gasto {
+    color: #fca5a5;
+}
+
+.total {
+    margin-top: 8px;
+
+    padding: 9px;
+
+    background: #0f172a;
+
+    border-radius: 9px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+/* =========================
+HISTÓRICO
+========================= */
+
+.navegacao {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 10px;
+}
+
+.navegacao button {
+    background: #334155;
+
+    color: white;
+
+    padding: 7px 11px;
+}
+
+.historico-vazio {
+    padding: 15px;
+
+    background: #0f172a;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+}
+
+.dia-historico {
+    background: #0f172a;
+
+    border-radius: 12px;
+
+    padding: 11px;
+
+    margin-bottom: 9px;
+}
+
+.dia-cabecalho {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 8px;
+}
+
+.dia-data {
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+.dia-resumo {
+    margin-top: 5px;
+
+    font-size: 11px;
+
+    color: #cbd5e1;
+}
+
+.dia-acoes {
+    display: flex;
+
+    gap: 5px;
+
+    flex-wrap: wrap;
+
+    justify-content: flex-end;
+}
+
+.detalhes-dia {
+    display: none;
+
+    margin-top: 10px;
+
+    padding-top: 8px;
+
+    border-top: 1px solid #334155;
+}
+
+.detalhes-dia.aberto {
+    display: block;
+}
+
+.lancamento-historico {
+    padding: 8px 0;
+
+    border-bottom: 1px solid #1e293b;
+
+    display: grid;
+
+    grid-template-columns: 1fr auto;
+
+    gap: 8px;
+
+    align-items: center;
+}
+
+.lancamento-historico:last-child {
+    border-bottom: none;
+}
+
+.lancamento-historico strong {
+    font-size: 12px;
+}
+
+.lancamento-historico small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+}
+
+/* =========================
+INDICADORES
+========================= */
+
+.indicador {
+    background: #334155;
+
+    border-radius: 9px;
+
+    padding: 10px;
+
+    margin-bottom: 7px;
+}
+
+.indicador span {
+    display: block;
+
+    font-size: 11px;
+
+    color: #cbd5e1;
+}
+
+.indicador strong {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 17px;
+}
+
+.indicador small {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 10px;
+
+    color: #94a3b8;
+}
+
+/* =========================
+MENSAGEM
+========================= */
+
+.mensagem {
+    display: none;
+
+    margin-top: 10px;
+
+    padding: 9px;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+}
+
+.mensagem.sucesso {
+    display: block;
+
+    background: #14532d;
+}
+
+.mensagem.erro {
+    display: block;
+
+    background: #7f1d1d;
+}
+
+/* =========================
+MODAL
+========================= */
+
+.modal-exclusao {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.72);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 9999;
+}
+
+.oculto-modal {
+    display: none;
+}
+
+.caixa-modal {
+    width: 100%;
+
+    max-width: 380px;
+
+    background: #1e293b;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    text-align: center;
+}
+
+.caixa-modal h3 {
+    margin: 0 0 10px;
+}
+
+.caixa-modal p {
+    margin: 0;
+
+    color: #cbd5e1;
+
+    font-size: 14px;
+}
+
+.botoes-modal {
+    margin-top: 18px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+}
+
+.btn-modal-cancelar {
+    padding: 11px;
+
+    background: #475569;
+
+    color: white;
+}
+
+.btn-modal-excluir {
+    padding: 11px;
+
+    background: #ef4444;
+
+    color: white;
+}
+
+/* =========================
+RESPONSIVO
+========================= */
+
+@media(max-width: 850px) {
+
+    .painel {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+<!-- Biblioteca para gerar arquivos Excel (.xlsx) -->
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+</head>
+
+<body>
+
+<header class="topo">
+
+<div class="logo-app">
+
+    <h1>🚗 Rota Fácil</h1>
+
+    <div class="versao">
+        HTML v1.4 • Controle financeiro do motorista
+    </div>
+
+</div>
+
+<div class="topo-botoes">
+
+    <button
+        class="btn-topo"
+        id="exportarExcel"
+        type="button">
+
+        📊 Excel
+
+    </button>
+
+    <button
+        class="btn-topo"
+        id="exportarBackup"
+        type="button">
+
+        ⬇ Backup
+
+    </button>
+
+    <button
+        class="btn-topo"
+        id="importarBackup"
+        type="button">
+
+        ⬆ Restaurar
+
+    </button>
+
+    <input
+        type="file"
+        id="arquivoBackup"
+        class="input-arquivo"
+        accept=".json">
+
+</div>
+
+<div
+    class="data-hoje"
+    id="dataHoje">
+</div>
+
+</header>
+
+
+<main class="painel">
+
+
+<!-- =========================
+SEMANA
+========================= -->
+
+<section class="quadrante">
+
+<h2>📊 Semana atual</h2>
+
+<label for="aluguelInformado">
+    💳 Aluguel desta semana
+</label>
+
+<input
+    type="number"
+    id="aluguelInformado"
+    step="0.01"
+    min="0"
+    inputmode="decimal"
+    placeholder="Ex: 954.91">
+
+<div class="texto-menor">
+    O valor da semana depende das corridas da semana passada — digite aqui o valor combinado.
+</div>
+
+
+<div class="cards">
+
+<div class="card">
+
+    <span>Receita</span>
+
+    <strong id="receitaSemana">
+        R$ 0,00
+    </strong>
+
+</div>
+
+
+<div class="card">
+
+    <span>Gastos</span>
+
+    <strong id="gastosSemana">
+        R$ 0,00
+    </strong>
+
+</div>
+
+
+<div class="card">
+
+    <span>Aluguel</span>
+
+    <strong id="aluguelSemana">
+        R$ 0,00
+    </strong>
+
+</div>
+
+
+<div class="card">
+
+    <span>Resultado líquido</span>
+
+    <strong id="liquidoSemana">
+        R$ 0,00
+    </strong>
+
+</div>
+
+</div>
+
+
+<div class="subtitulo">
+Percentuais da semana
+</div>
+
+
+<div class="percentuais">
+
+<div class="percentual-card">
+
+    <span>🚗 Aluguel</span>
+
+    <strong id="pctAluguelSemana">
+        0%
+    </strong>
+
+    <small>da receita</small>
+
+</div>
+
+
+<div class="percentual-card">
+
+    <span>⛽ Combustível</span>
+
+    <strong id="pctCombustivelSemana">
+        0%
+    </strong>
+
+    <small>da receita</small>
+
+</div>
+
+
+<div class="percentual-card">
+
+    <span>💸 Outros gastos</span>
+
+    <strong id="pctOutrosSemana">
+        0%
+    </strong>
+
+    <small>da receita</small>
+
+</div>
+
+
+<div class="percentual-card">
+
+    <span>💰 Ficou comigo</span>
+
+    <strong id="pctLiquidoSemana">
+        0%
+    </strong>
+
+    <small>da receita</small>
+
+</div>
+
+</div>
+
+
+<div class="subtitulo">
+Franquia semanal
+</div>
+
+
+<div class="progresso">
+
+<strong id="kmSemana">
+    0 / 1.500 km
+</strong>
+
+<div class="barra">
+
+    <div
+        class="barra-interna"
+        id="barraKm">
+    </div>
+
+</div>
+
+<div
+    class="texto-menor"
+    id="textoKm">
+
+    Restam 1.500 km.
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+LANÇAMENTO
+========================= -->
+
+<section class="quadrante">
+
+<h2>➕ Lançamento do dia</h2>
+
+<label>Data</label>
+
+<input
+    type="date"
+    id="dataLancamento">
+
+
+<div class="duas-colunas">
+
+<div>
+
+<label>
+    Movimento
+</label>
+
+<select id="tipoMovimento">
+
+    <option value="ganho">
+        Ganho
+    </option>
+
+    <option value="gasto">
+        Gasto
+    </option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label>
+    Categoria
+</label>
+
+<select id="categoriaMovimento">
+
+<option value="Uber - Corridas">
+    Uber - Corridas
+</option>
+
+<option value="Uber - Promoções">
+    Uber - Promoções
+</option>
+
+<option value="99">
+    99
+</option>
+
+<option value="Particular">
+    Particular
+</option>
+
+<option value="Outro ganho">
+    Outro ganho
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<div
+    id="campoCombustivel"
+    class="oculto">
+
+<div class="duas-colunas">
+
+<div>
+
+<label>
+    Combustível
+</label>
+
+<select id="combustivelTipo">
+
+<option value="Gasolina">
+    Gasolina
+</option>
+
+<option value="Etanol">
+    Etanol
+</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label>
+    Preço por litro
+</label>
+
+<input
+    type="number"
+    id="precoLitro"
+    step="0.001"
+    min="0"
+    inputmode="decimal">
+
+</div>
+
+</div>
+
+</div>
+
+
+<label>Valor</label>
+
+<input
+    type="number"
+    id="valorMovimento"
+    step="0.01"
+    min="0"
+    inputmode="decimal">
+
+
+<div
+    id="campoCorridas"
+    class="oculto">
+
+<label>
+    Número de corridas
+</label>
+
+<input
+    type="number"
+    id="quantidadeCorridas"
+    step="1"
+    min="0"
+    inputmode="numeric">
+
+</div>
+
+
+<label>
+    Descrição
+</label>
+
+<input
+    type="text"
+    id="descricaoMovimento"
+    placeholder="Opcional">
+
+
+<button
+    type="button"
+    class="btn-adicionar"
+    id="adicionarMovimento">
+
+    ➕ Adicionar lançamento
+
+</button>
+
+
+<div class="subtitulo">
+Lançamentos adicionados
+</div>
+
+<div id="listaMovimentos"></div>
+
+
+<div class="total">
+
+<span>Receitas</span>
+
+<strong
+    class="ganho"
+    id="totalGanhosDia">
+
+    R$ 0,00
+
+</strong>
+
+</div>
+
+
+<div class="total">
+
+<span>Gastos</span>
+
+<strong
+    class="gasto"
+    id="totalGastosDia">
+
+    R$ 0,00
+
+</strong>
+
+</div>
+
+
+<div class="total">
+
+<span>Saldo operacional</span>
+
+<strong id="saldoDia">
+    R$ 0,00
+</strong>
+
+</div>
+
+
+<label>
+    Km rodados no dia
+</label>
+
+<input
+    type="number"
+    id="kmDia"
+    step="0.1"
+    min="0"
+    inputmode="decimal">
+
+
+<button
+    type="button"
+    class="btn-salvar"
+    id="salvarDia">
+
+    💾 Salvar dia
+
+</button>
+
+
+<button
+    type="button"
+    class="btn-cancelar"
+    id="cancelarEdicao">
+
+    Cancelar edição
+
+</button>
+
+
+<div
+    class="mensagem"
+    id="mensagem">
+</div>
+
+</section>
+
+
+<!-- =========================
+HISTÓRICO
+========================= -->
+
+<section class="quadrante">
+
+<h2>📅 Histórico</h2>
+
+<div class="navegacao">
+
+<button
+    id="mesAnterior"
+    type="button">
+
+    ◀
+
+</button>
+
+<strong id="nomeMes">
+</strong>
+
+<button
+    id="mesSeguinte"
+    type="button">
+
+    ▶
+
+</button>
+
+</div>
+
+<div id="historico"></div>
+
+</section>
+
+
+<!-- =========================
+INDICADORES DO MÊS
+========================= -->
+
+<section class="quadrante">
+
+<h2>📈 Indicadores do mês</h2>
+
+
+<div class="indicador">
+
+<span>Receita</span>
+
+<strong id="receitaMes">
+    R$ 0,00
+</strong>
+
+</div>
+
+
+<div class="indicador">
+
+<span>🚗 Aluguel</span>
+
+<strong id="aluguelMes">
+    R$ 0,00
+</strong>
+
+<small id="pctAluguelMes">
+    0% da receita
+</small>
+
+</div>
+
+
+<div class="indicador">
+
+<span>⛽ Combustível</span>
+
+<strong id="combustivelMes">
+    R$ 0,00
+</strong>
+
+<small id="pctCombustivelMes">
+    0% da receita
+</small>
+
+</div>
+
+
+<div class="indicador">
+
+<span>💸 Outros gastos</span>
+
+<strong id="outrosGastosMes">
+    R$ 0,00
+</strong>
+
+<small id="pctOutrosMes">
+    0% da receita
+</small>
+
+</div>
+
+
+<div class="indicador">
+
+<span>💰 Resultado líquido</span>
+
+<strong id="liquidoMes">
+    R$ 0,00
+</strong>
+
+<small id="pctLiquidoMes">
+    0% ficou comigo
+</small>
+
+</div>
+
+
+<div class="subtitulo">
+Receitas por origem
+</div>
+
+
+<div class="indicador">
+
+<span>Uber</span>
+
+<strong id="uberMes">
+    R$ 0,00
+</strong>
+
+</div>
+
+
+<div class="indicador">
+
+<span>99</span>
+
+<strong id="noventaNoveMes">
+    R$ 0,00
+</strong>
+
+</div>
+
+
+<div class="indicador">
+
+<span>Particular</span>
+
+<strong id="particularMes">
+    R$ 0,00
+</strong>
+
+</div>
+
+
+<div class="subtitulo">
+Corridas do mês
+</div>
+
+
+<div class="indicador">
+
+<span>🚗 Corridas Uber</span>
+
+<strong id="corridasUberMes">
+    0 corridas
+</strong>
+
+</div>
+
+
+<div class="indicador">
+
+<span>🚕 Corridas 99</span>
+
+<strong id="corridas99Mes">
+    0 corridas
+</strong>
+
+</div>
+
+
+<div class="indicador">
+
+<span>Km rodados</span>
+
+<strong id="kmMes">
+    0 km
+</strong>
+
+</div>
+
+
+<div class="indicador">
+
+<span>Receita por km</span>
+
+<strong id="receitaKm">
+    R$ 0,00
+</strong>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- =========================
+MODAL EXCLUSÃO
+========================= -->
+
+<div
+    id="modalExclusao"
+    class="modal-exclusao oculto-modal">
+
+<div class="caixa-modal">
+
+<h3>
+    Excluir lançamento?
+</h3>
+
+<p id="textoExclusao">
+    Deseja realmente excluir este lançamento?
+</p>
+
+<div class="botoes-modal">
+
+<button
+    type="button"
+    id="cancelarExclusao"
+    class="btn-modal-cancelar">
+
+    Cancelar
+
+</button>
+
+<button
+    type="button"
+    id="confirmarExclusao"
+    class="btn-modal-excluir">
+
+    🗑 Excluir
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================
+CONFIGURAÇÕES
+========================= */
+
+const VERSAO_APP =
+    "1.4";
+
+const CHAVE_DADOS =
+    "rotaFacilV1";
+
+const CHAVE_ALUGUEIS =
+    "rotaFacilAlugueisV1";
+
+const FRANQUIA_KM =
+    1500;
+
+
+let movimentosTemporarios =
+    [];
+
+let editandoData =
+    null;
+
+let exclusaoPendente =
+    null;
+
+let mesExibido =
+    new Date();
+
+mesExibido.setDate(
+    1
+);
+
+
+const CATEGORIAS = {
+
+ganho: [
+
+    "Uber - Corridas",
+    "Uber - Promoções",
+    "99",
+    "Particular",
+    "Outro ganho"
+
+],
+
+gasto: [
+
+    "Combustível",
+    "Alimentação",
+    "Pedágio",
+    "Estacionamento",
+    "Lavagem",
+    "Manutenção",
+    "Outro gasto"
+
+]
+
+};
+
+
+/* =========================
+AUXILIARES
+========================= */
+
+function el(id) {
+
+    return document.getElementById(
+        id
+    );
+
+}
+
+
+function dinheiro(valor) {
+
+    return Number(
+        valor || 0
+    ).toLocaleString(
+        "pt-BR",
+        {
+            style:
+                "currency",
+
+            currency:
+                "BRL"
+        }
+    );
+
+}
+
+
+function percentual(
+    valor,
+    receita
+) {
+
+    if (
+        receita <=
+        0
+    ) {
+
+        return "0,0%";
+
+    }
+
+    return (
+        (
+            valor /
+            receita
+        ) *
+        100
+    ).toLocaleString(
+        "pt-BR",
+        {
+            minimumFractionDigits:
+                1,
+
+            maximumFractionDigits:
+                1
+        }
+    ) +
+    "%";
+
+}
+
+
+function numero(id) {
+
+    const valor =
+        parseFloat(
+            el(id).value
+        );
+
+    return isNaN(
+        valor
+    )
+        ? 0
+        : valor;
+
+}
+
+
+function criarId() {
+
+    return (
+        Date.now().toString() +
+        "-" +
+        Math.random()
+            .toString(36)
+            .substring(
+                2,
+                9
+            )
+    );
+
+}
+
+
+function dataChave(data) {
+
+    const ano =
+        data.getFullYear();
+
+    const mes =
+        String(
+            data.getMonth() +
+            1
+        ).padStart(
+            2,
+            "0"
+        );
+
+    const dia =
+        String(
+            data.getDate()
+        ).padStart(
+            2,
+            "0"
+        );
+
+    return (
+        ano +
+        "-" +
+        mes +
+        "-" +
+        dia
+    );
+
+}
+
+
+function chaveParaData(chave) {
+
+    return new Date(
+        chave +
+        "T12:00:00"
+    );
+
+}
+
+
+function formatarData(chave) {
+
+    return chaveParaData(
+        chave
+    ).toLocaleDateString(
+        "pt-BR"
+    );
+
+}
+
+
+function mensagem(
+    texto,
+    tipo
+) {
+
+    const campo =
+        el(
+            "mensagem"
+        );
+
+    campo.textContent =
+        texto;
+
+    campo.className =
+        "mensagem " +
+        tipo;
+
+}
+
+
+function limparMensagem() {
+
+    const campo =
+        el(
+            "mensagem"
+        );
+
+    campo.textContent =
+        "";
+
+    campo.className =
+        "mensagem";
+
+}
+
+
+/* =========================
+NORMALIZAÇÃO
+========================= */
+
+function normalizarDias(dias) {
+
+    if (
+        !Array.isArray(
+            dias
+        )
+    ) {
+
+        return [];
+
+    }
+
+    return dias.map(
+        function(dia) {
+
+            const movimentos =
+                Array.isArray(
+                    dia.movimentos
+                )
+                    ? dia.movimentos
+                    : [];
+
+            movimentos.forEach(
+                function(item) {
+
+                    if (
+                        !item.id
+                    ) {
+
+                        item.id =
+                            criarId();
+
+                    }
+
+                }
+            );
+
+            return {
+
+                data:
+                    dia.data,
+
+                km:
+                    Number(
+                        dia.km ||
+                        0
+                    ),
+
+                movimentos:
+                    movimentos
+
+            };
+
+        }
+    );
+
+}
+
+
+/* =========================
+ARMAZENAMENTO
+========================= */
+
+function carregarDias() {
+
+    try {
+
+        const texto =
+            localStorage.getItem(
+                CHAVE_DADOS
+            );
+
+        if (
+            !texto
+        ) {
+
+            return [];
+
+        }
+
+        const dados =
+            normalizarDias(
+                JSON.parse(
+                    texto
+                )
+            );
+
+        localStorage.setItem(
+            CHAVE_DADOS,
+            JSON.stringify(
+                dados
+            )
+        );
+
+        return dados;
+
+    }
+
+    catch (
+        erro
+    ) {
+
+        console.error(
+            erro
+        );
+
+        return [];
+
+    }
+
+}
+
+
+function salvarDias(dias) {
+
+    try {
+
+        localStorage.setItem(
+            CHAVE_DADOS,
+            JSON.stringify(
+                normalizarDias(
+                    dias
+                )
+            )
+        );
+
+        return true;
+
+    }
+
+    catch (
+        erro
+    ) {
+
+        console.error(
+            erro
+        );
+
+        mensagem(
+            "Erro ao salvar os dados.",
+            "erro"
+        );
+
+        return false;
+
+    }
+
+}
+
+
+/* =========================
+ALUGUEL SEMANAL (MANUAL)
+========================= */
+
+function carregarAlugueis() {
+
+    try {
+
+        const texto =
+            localStorage.getItem(
+                CHAVE_ALUGUEIS
+            );
+
+        if (
+            !texto
+        ) {
+
+            return {};
+
+        }
+
+        const dados =
+            JSON.parse(
+                texto
+            );
+
+        return (
+            dados &&
+            typeof dados ===
+                "object"
+        )
+            ? dados
+            : {};
+
+    }
+
+    catch (
+        erro
+    ) {
+
+        console.error(
+            erro
+        );
+
+        return {};
+
+    }
+
+}
+
+
+function salvarAlugueis(alugueis) {
+
+    try {
+
+        localStorage.setItem(
+            CHAVE_ALUGUEIS,
+            JSON.stringify(
+                alugueis
+            )
+        );
+
+        return true;
+
+    }
+
+    catch (
+        erro
+    ) {
+
+        console.error(
+            erro
+        );
+
+        mensagem(
+            "Erro ao salvar o aluguel.",
+            "erro"
+        );
+
+        return false;
+
+    }
+
+}
+
+
+function obterAluguelSemana(inicioSemanaData) {
+
+    const alugueis =
+        carregarAlugueis();
+
+    const chave =
+        dataChave(
+            inicioSemanaData
+        );
+
+    return Number(
+        alugueis[chave] ||
+        0
+    );
+
+}
+
+
+function definirAluguelSemana(
+    inicioSemanaData,
+    valor
+) {
+
+    const alugueis =
+        carregarAlugueis();
+
+    const chave =
+        dataChave(
+            inicioSemanaData
+        );
+
+    alugueis[chave] =
+        valor;
+
+    return salvarAlugueis(
+        alugueis
+    );
+
+}
+
+
+/* =========================
+CATEGORIAS
+========================= */
+
+function atualizarCategorias() {
+
+    const tipo =
+        el(
+            "tipoMovimento"
+        ).value;
+
+    const select =
+        el(
+            "categoriaMovimento"
+        );
+
+    select.innerHTML =
+        "";
+
+    CATEGORIAS[tipo]
+        .forEach(
+            function(categoria) {
+
+                const option =
+                    document.createElement(
+                        "option"
+                    );
+
+                option.value =
+                    categoria;
+
+                option.textContent =
+                    categoria;
+
+                select.appendChild(
+                    option
+                );
+
+            }
+        );
+
+    atualizarCamposExtras();
+
+}
+
+
+function atualizarCamposExtras() {
+
+    const categoria =
+        el(
+            "categoriaMovimento"
+        ).value;
+
+    if (
+        categoria ===
+        "Combustível"
+    ) {
+
+        el(
+            "campoCombustivel"
+        ).classList.remove(
+            "oculto"
+        );
+
+    }
+
+    else {
+
+        el(
+            "campoCombustivel"
+        ).classList.add(
+            "oculto"
+        );
+
+    }
+
+
+    if (
+        categoria ===
+            "Uber - Corridas" ||
+        categoria ===
+            "99"
+    ) {
+
+        el(
+            "campoCorridas"
+        ).classList.remove(
+            "oculto"
+        );
+
+    }
+
+    else {
+
+        el(
+            "campoCorridas"
+        ).classList.add(
+            "oculto"
+        );
+
+    }
+
+}
+
+
+const campoTipoMovimento = el(
+    "tipoMovimento"
+);
+
+const campoCategoriaMovimento = el(
+    "categoriaMovimento"
+);
+
+function aoAlterarTipoMovimento() {
+    atualizarCategorias();
+}
+
+campoTipoMovimento.addEventListener(
+    "change",
+    aoAlterarTipoMovimento
+);
+
+campoTipoMovimento.addEventListener(
+    "input",
+    aoAlterarTipoMovimento
+);
+
+campoCategoriaMovimento.addEventListener(
+    "change",
+    atualizarCamposExtras
+);
+
+campoCategoriaMovimento.addEventListener(
+    "input",
+    atualizarCamposExtras
+);
+
+
+/* =========================
+MOVIMENTOS
+========================= */
+
+function adicionarMovimento() {
+
+    limparMensagem();
+
+    const tipo =
+        el(
+            "tipoMovimento"
+        ).value;
+
+    const categoria =
+        el(
+            "categoriaMovimento"
+        ).value;
+
+    const valor =
+        numero(
+            "valorMovimento"
+        );
+
+    if (
+        valor <=
+        0
+    ) {
+
+        mensagem(
+            "Informe o valor.",
+            "erro"
+        );
+
+        return;
+
+    }
+
+    const movimento = {
+
+        id:
+            criarId(),
+
+        tipo:
+            tipo,
+
+        categoria:
+            categoria,
+
+        valor:
+            valor,
+
+        descricao:
+            el(
+                "descricaoMovimento"
+            ).value.trim(),
+
+        corridas:
+            0,
+
+        combustivelTipo:
+            "",
+
+        precoLitro:
+            0,
+
+        litros:
+            0
+
+    };
+
+
+    if (
+        categoria ===
+            "Uber - Corridas" ||
+        categoria ===
+            "99"
+    ) {
+
+        movimento.corridas =
+            Math.round(
+                numero(
+                    "quantidadeCorridas"
+                )
+            );
+
+    }
+
+
+    if (
+        categoria ===
+        "Combustível"
+    ) {
+
+        movimento.combustivelTipo =
+            el(
+                "combustivelTipo"
+            ).value;
+
+        movimento.precoLitro =
+            numero(
+                "precoLitro"
+            );
+
+        if (
+            movimento.precoLitro <=
+            0
+        ) {
+
+            mensagem(
+                "Informe o preço por litro.",
+                "erro"
+            );
+
+            return;
+
+        }
+
+        movimento.litros =
+            valor /
+            movimento.precoLitro;
+
+    }
+
+
+    movimentosTemporarios.push(
+        movimento
+    );
+
+    limparCamposMovimento();
+
+    atualizarListaMovimentos();
+
+}
+
+
+function removerMovimentoTemporario(id) {
+
+    movimentosTemporarios =
+        movimentosTemporarios.filter(
+            function(item) {
+
+                return (
+                    item.id !==
+                    id
+                );
+
+            }
+        );
+
+    atualizarListaMovimentos();
+
+}
+
+
+function criarDetalhesMovimento(item) {
+
+    const detalhes =
+        [];
+
+    if (
+        Number(
+            item.corridas ||
+            0
+        ) >
+        0
+    ) {
+
+        detalhes.push(
+            item.corridas +
+            " corridas"
+        );
+
+    }
+
+    if (
+        item.categoria ===
+        "Combustível"
+    ) {
+
+        if (
+            item.combustivelTipo
+        ) {
+
+            detalhes.push(
+                item.combustivelTipo
+            );
+
+        }
+
+        if (
+            Number(
+                item.litros ||
+                0
+            ) >
+            0
+        ) {
+
+            detalhes.push(
+                Number(
+                    item.litros
+                ).toLocaleString(
+                    "pt-BR",
+                    {
+                        maximumFractionDigits:
+                            2
+                    }
+                ) +
+                " L"
+            );
+
+        }
+
+    }
+
+    if (
+        item.descricao
+    ) {
+
+        detalhes.push(
+            item.descricao
+        );
+
+    }
+
+    return detalhes.join(
+        " • "
+    );
+
+}
+
+
+function atualizarListaMovimentos() {
+
+    const lista =
+        el(
+            "listaMovimentos"
+        );
+
+    lista.innerHTML =
+        "";
+
+    if (
+        movimentosTemporarios.length ===
+        0
+    ) {
+
+        const vazio =
+            document.createElement(
+                "div"
+            );
+
+        vazio.className =
+            "historico-vazio";
+
+        vazio.textContent =
+            "Nenhum lançamento adicionado.";
+
+        lista.appendChild(
+            vazio
+        );
+
+    }
+
+
+    movimentosTemporarios.forEach(
+        function(item) {
+
+            const linha =
+                document.createElement(
+                    "div"
+                );
+
+            linha.className =
+                "movimento-dia";
+
+            const info =
+                document.createElement(
+                    "div"
+                );
+
+            info.className =
+                "movimento-info";
+
+            const titulo =
+                document.createElement(
+                    "strong"
+                );
+
+            titulo.className =
+                item.tipo ===
+                "ganho"
+                    ? "ganho"
+                    : "gasto";
+
+            titulo.textContent =
+                (
+                    item.tipo ===
+                    "ganho"
+                        ? "+"
+                        : "-"
+                ) +
+                " " +
+                item.categoria +
+                " • " +
+                dinheiro(
+                    item.valor
+                );
+
+            info.appendChild(
+                titulo
+            );
+
+            const detalhes =
+                criarDetalhesMovimento(
+                    item
+                );
+
+            if (
+                detalhes
+            ) {
+
+                const small =
+                    document.createElement(
+                        "small"
+                    );
+
+                small.textContent =
+                    detalhes;
+
+                info.appendChild(
+                    small
+                );
+
+            }
+
+            const botao =
+                document.createElement(
+                    "button"
+                );
+
+            botao.type =
+                "button";
+
+            botao.className =
+                "btn-excluir";
+
+            botao.textContent =
+                "🗑️";
+
+            botao.addEventListener(
+                "click",
+                function() {
+
+                    removerMovimentoTemporario(
+                        item.id
+                    );
+
+                }
+            );
+
+            linha.appendChild(
+                info
+            );
+
+            linha.appendChild(
+                botao
+            );
+
+            lista.appendChild(
+                linha
+            );
+
+        }
+    );
+
+    atualizarTotaisDia();
+
+}
+
+
+function totalTemporario(tipo) {
+
+    return movimentosTemporarios
+        .filter(
+            function(item) {
+
+                return (
+                    item.tipo ===
+                    tipo
+                );
+
+            }
+        )
+        .reduce(
+            function(
+                soma,
+                item
+            ) {
+
+                return (
+                    soma +
+                    Number(
+                        item.valor ||
+                        0
+                    )
+                );
+
+            },
+            0
+        );
+
+}
+
+
+function atualizarTotaisDia() {
+
+    const ganhos =
+        totalTemporario(
+            "ganho"
+        );
+
+    const gastos =
+        totalTemporario(
+            "gasto"
+        );
+
+    el(
+        "totalGanhosDia"
+    ).textContent =
+        dinheiro(
+            ganhos
+        );
+
+    el(
+        "totalGastosDia"
+    ).textContent =
+        dinheiro(
+            gastos
+        );
+
+    el(
+        "saldoDia"
+    ).textContent =
+        dinheiro(
+            ganhos -
+            gastos
+        );
+
+}
+
+
+function limparCamposMovimento() {
+
+    el(
+        "valorMovimento"
+    ).value =
+        "";
+
+    el(
+        "quantidadeCorridas"
+    ).value =
+        "";
+
+    el(
+        "descricaoMovimento"
+    ).value =
+        "";
+
+    el(
+        "precoLitro"
+    ).value =
+        "";
+
+}
+
+
+el(
+    "adicionarMovimento"
+).addEventListener(
+    "click",
+    adicionarMovimento
+);
+
+
+/* =========================
+CÁLCULO DO DIA
+========================= */
+
+function calcularDia(dia) {
+
+    let receita =
+        0;
+
+    let gastos =
+        0;
+
+    let uber =
+        0;
+
+    let noventaNove =
+        0;
+
+    let particular =
+        0;
+
+    let combustivel =
+        0;
+
+    let corridasUber =
+        0;
+
+    let corridas99 =
+        0;
+
+
+    dia.movimentos.forEach(
+        function(item) {
+
+            const valor =
+                Number(
+                    item.valor ||
+                    0
+                );
+
+            if (
+                item.tipo ===
+                "ganho"
+            ) {
+
+                receita +=
+                    valor;
+
+            }
+
+            if (
+                item.tipo ===
+                "gasto"
+            ) {
+
+                gastos +=
+                    valor;
+
+            }
+
+            if (
+                item.categoria ===
+                    "Uber - Corridas" ||
+                item.categoria ===
+                    "Uber - Promoções"
+            ) {
+
+                uber +=
+                    valor;
+
+            }
+
+            if (
+                item.categoria ===
+                "Uber - Corridas"
+            ) {
+
+                corridasUber +=
+                    Number(
+                        item.corridas ||
+                        0
+                    );
+
+            }
+
+            if (
+                item.categoria ===
+                "99"
+            ) {
+
+                noventaNove +=
+                    valor;
+
+                corridas99 +=
+                    Number(
+                        item.corridas ||
+                        0
+                    );
+
+            }
+
+            if (
+                item.categoria ===
+                "Particular"
+            ) {
+
+                particular +=
+                    valor;
+
+            }
+
+            if (
+                item.categoria ===
+                "Combustível"
+            ) {
+
+                combustivel +=
+                    valor;
+
+            }
+
+        }
+    );
+
+
+    return {
+
+        receita:
+            receita,
+
+        gastos:
+            gastos,
+
+        uber:
+            uber,
+
+        noventaNove:
+            noventaNove,
+
+        particular:
+            particular,
+
+        combustivel:
+            combustivel,
+
+        corridasUber:
+            corridasUber,
+
+        corridas99:
+            corridas99,
+
+        km:
+            Number(
+                dia.km ||
+                0
+            )
+
+    };
+
+}
+
+
+/* =========================
+SEMANA
+========================= */
+
+function inicioSemana(data) {
+
+    const d =
+        new Date(
+            data
+        );
+
+    const dia =
+        d.getDay();
+
+    const ajuste =
+        dia ===
+            0
+            ? -6
+            : 1 -
+              dia;
+
+    d.setDate(
+        d.getDate() +
+        ajuste
+    );
+
+    d.setHours(
+        0,
+        0,
+        0,
+        0
+    );
+
+    return d;
+
+}
+
+
+function dadosSemana(
+    inicio
+) {
+
+    const dias =
+        carregarDias();
+
+    const fim =
+        new Date(
+            inicio
+        );
+
+    fim.setDate(
+        fim.getDate() +
+        6
+    );
+
+    fim.setHours(
+        23,
+        59,
+        59,
+        999
+    );
+
+
+    let receita =
+        0;
+
+    let gastos =
+        0;
+
+    let combustivel =
+        0;
+
+    let km =
+        0;
+
+
+    dias.forEach(
+        function(dia) {
+
+            const data =
+                chaveParaData(
+                    dia.data
+                );
+
+            if (
+                data >=
+                    inicio &&
+                data <=
+                    fim
+            ) {
+
+                const calc =
+                    calcularDia(
+                        dia
+                    );
+
+                receita +=
+                    calc.receita;
+
+                gastos +=
+                    calc.gastos;
+
+                combustivel +=
+                    calc.combustivel;
+
+                km +=
+                    calc.km;
+
+            }
+
+        }
+    );
+
+
+    const aluguel =
+        obterAluguelSemana(
+            inicio
+        );
+
+
+    return {
+
+        receita:
+            receita,
+
+        gastos:
+            gastos,
+
+        combustivel:
+            combustivel,
+
+        km:
+            km,
+
+        aluguel:
+            aluguel,
+
+        liquido:
+            receita -
+            gastos -
+            aluguel
+
+    };
+
+}
+
+
+function atualizarSemana() {
+
+    const inicio =
+        inicioSemana(
+            new Date()
+        );
+
+    const dados =
+        dadosSemana(
+            inicio
+        );
+
+
+    const outrosGastos =
+        Math.max(
+            0,
+            dados.gastos -
+            dados.combustivel
+        );
+
+
+    el(
+        "receitaSemana"
+    ).textContent =
+        dinheiro(
+            dados.receita
+        );
+
+    el(
+        "gastosSemana"
+    ).textContent =
+        dinheiro(
+            dados.gastos
+        );
+
+    el(
+        "aluguelSemana"
+    ).textContent =
+        dinheiro(
+            dados.aluguel
+        );
+
+    el(
+        "liquidoSemana"
+    ).textContent =
+        dinheiro(
+            dados.liquido
+        );
+
+
+    el(
+        "pctAluguelSemana"
+    ).textContent =
+        percentual(
+            dados.aluguel,
+            dados.receita
+        );
+
+
+    el(
+        "pctCombustivelSemana"
+    ).textContent =
+        percentual(
+            dados.combustivel,
+            dados.receita
+        );
+
+
+    el(
+        "pctOutrosSemana"
+    ).textContent =
+        percentual(
+            outrosGastos,
+            dados.receita
+        );
+
+
+    el(
+        "pctLiquidoSemana"
+    ).textContent =
+        percentual(
+            dados.liquido,
+            dados.receita
+        );
+
+
+    if (
+        document.activeElement !==
+        el(
+            "aluguelInformado"
+        )
+    ) {
+
+        el(
+            "aluguelInformado"
+        ).value =
+            dados.aluguel >
+            0
+                ? dados.aluguel
+                : "";
+
+    }
+
+
+    el(
+        "kmSemana"
+    ).textContent =
+        dados.km.toLocaleString(
+            "pt-BR",
+            {
+                maximumFractionDigits:
+                    1
+            }
+        ) +
+        " / 1.500 km";
+
+
+    el(
+        "barraKm"
+    ).style.width =
+        Math.min(
+            100,
+            (
+                dados.km /
+                FRANQUIA_KM
+            ) *
+            100
+        ) +
+        "%";
+
+
+    const restante =
+        FRANQUIA_KM -
+        dados.km;
+
+
+    el(
+        "textoKm"
+    ).textContent =
+        restante >=
+        0
+            ? "Restam " +
+              restante.toLocaleString(
+                  "pt-BR",
+                  {
+                      maximumFractionDigits:
+                          1
+                  }
+              ) +
+              " km."
+
+            : "⚠️ Franquia excedida em " +
+              Math.abs(
+                  restante
+              ).toLocaleString(
+                  "pt-BR",
+                  {
+                      maximumFractionDigits:
+                          1
+                  }
+              ) +
+              " km.";
+
+}
+
+
+el(
+    "aluguelInformado"
+).addEventListener(
+    "change",
+    function() {
+
+        const inicio =
+            inicioSemana(
+                new Date()
+            );
+
+        const valor =
+            numero(
+                "aluguelInformado"
+            );
+
+        definirAluguelSemana(
+            inicio,
+            valor
+        );
+
+        atualizarTudo();
+
+    }
+);
+
+
+/* =========================
+ALUGUEL DO MÊS
+========================= */
+
+function calcularAluguelMes(
+    ano,
+    mes
+) {
+
+    let total =
+        0;
+
+    const primeiroDia =
+        new Date(
+            ano,
+            mes,
+            1
+        );
+
+    const ultimoDia =
+        new Date(
+            ano,
+            mes +
+                1,
+            0
+        );
+
+
+    let data =
+        new Date(
+            primeiroDia
+        );
+
+
+    while (
+        data.getDay() !==
+        1
+    ) {
+
+        data.setDate(
+            data.getDate() +
+            1
+        );
+
+    }
+
+
+    while (
+        data <=
+        ultimoDia
+    ) {
+
+        /*
+        Soma apenas os alugueis que o
+        usuário já informou manualmente
+        para cada semana.
+        */
+
+        total +=
+            obterAluguelSemana(
+                new Date(
+                    data
+                )
+            );
+
+        data.setDate(
+            data.getDate() +
+            7
+        );
+
+    }
+
+    return total;
+
+}
+
+
+/* =========================
+SALVAR DIA
+========================= */
+
+function salvarDia() {
+
+    limparMensagem();
+
+    const data =
+        el(
+            "dataLancamento"
+        ).value;
+
+    const km =
+        numero(
+            "kmDia"
+        );
+
+
+    if (
+        !data
+    ) {
+
+        mensagem(
+            "Escolha a data.",
+            "erro"
+        );
+
+        return;
+
+    }
+
+
+    if (
+        movimentosTemporarios.length ===
+            0 &&
+        km ===
+            0
+    ) {
+
+        mensagem(
+            "Adicione um lançamento ou informe os quilômetros.",
+            "erro"
+        );
+
+        return;
+
+    }
+
+
+    let dias =
+        carregarDias();
+
+
+    if (
+        editandoData
+    ) {
+
+        dias =
+            dias.filter(
+                function(dia) {
+
+                    return (
+                        dia.data !==
+                        editandoData
+                    );
+
+                }
+            );
+
+    }
+
+
+    const existente =
+        dias.find(
+            function(dia) {
+
+                return (
+                    dia.data ===
+                    data
+                );
+
+            }
+        );
+
+
+    if (
+        existente
+    ) {
+
+        existente.movimentos =
+            existente.movimentos.concat(
+                movimentosTemporarios
+            );
+
+
+        if (
+            km >
+            0
+        ) {
+
+            existente.km =
+                km;
+
+        }
+
+
+        if (
+            !salvarDias(
+                dias
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        movimentosTemporarios =
+            [];
+
+        editandoData =
+            null;
+
+        el(
+            "kmDia"
+        ).value =
+            "";
+
+        el(
+            "salvarDia"
+        ).textContent =
+            "💾 Salvar dia";
+
+        el(
+            "cancelarEdicao"
+        ).style.display =
+            "none";
+
+
+        mesExibido =
+            chaveParaData(
+                data
+            );
+
+        mesExibido.setDate(
+            1
+        );
+
+
+        atualizarListaMovimentos();
+
+        atualizarTudo();
+
+
+        mensagem(
+            "Novos lançamentos adicionados ao dia " +
+            formatarData(
+                data
+            ) +
+            ".",
+            "sucesso"
+        );
+
+        return;
+
+    }
+
+
+    dias.push({
+
+        data:
+            data,
+
+        km:
+            km,
+
+        movimentos:
+            movimentosTemporarios.map(
+                function(item) {
+
+                    return Object.assign(
+                        {},
+                        item
+                    );
+
+                }
+            )
+
+    });
+
+
+    if (
+        !salvarDias(
+            dias
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    movimentosTemporarios =
+        [];
+
+    editandoData =
+        null;
+
+
+    el(
+        "kmDia"
+    ).value =
+        "";
+
+
+    el(
+        "salvarDia"
+    ).textContent =
+        "💾 Salvar dia";
+
+
+    el(
+        "cancelarEdicao"
+    ).style.display =
+        "none";
+
+
+    mesExibido =
+        chaveParaData(
+            data
+        );
+
+    mesExibido.setDate(
+        1
+    );
+
+
+    atualizarListaMovimentos();
+
+    atualizarTudo();
+
+
+    mensagem(
+        "Dia " +
+        formatarData(
+            data
+        ) +
+        " salvo com sucesso.",
+        "sucesso"
+    );
+
+}
+
+
+el(
+    "salvarDia"
+).addEventListener(
+    "click",
+    salvarDia
+);
+
+
+/* =========================
+EXCLUSÃO
+========================= */
+
+function solicitarExclusaoLancamento(
+    dataDia,
+    idMovimento
+) {
+
+    const dia =
+        carregarDias()
+            .find(
+                function(item) {
+
+                    return (
+                        item.data ===
+                        dataDia
+                    );
+
+                }
+            );
+
+
+    if (
+        !dia
+    ) {
+
+        return;
+
+    }
+
+
+    const movimento =
+        dia.movimentos
+            .find(
+                function(item) {
+
+                    return (
+                        item.id ===
+                        idMovimento
+                    );
+
+                }
+            );
+
+
+    if (
+        !movimento
+    ) {
+
+        return;
+
+    }
+
+
+    exclusaoPendente = {
+
+        dataDia:
+            dataDia,
+
+        idMovimento:
+            idMovimento
+
+    };
+
+
+    el(
+        "textoExclusao"
+    ).textContent =
+        movimento.categoria +
+        " — " +
+        dinheiro(
+            movimento.valor
+        );
+
+
+    el(
+        "modalExclusao"
+    ).classList.remove(
+        "oculto-modal"
+    );
+
+}
+
+
+el(
+    "cancelarExclusao"
+).addEventListener(
+    "click",
+    function() {
+
+        exclusaoPendente =
+            null;
+
+        el(
+            "modalExclusao"
+        ).classList.add(
+            "oculto-modal"
+        );
+
+    }
+);
+
+
+el(
+    "confirmarExclusao"
+).addEventListener(
+    "click",
+    function() {
+
+        if (
+            !exclusaoPendente
+        ) {
+
+            return;
+
+        }
+
+
+        let dias =
+            carregarDias();
+
+
+        const indiceDia =
+            dias.findIndex(
+                function(dia) {
+
+                    return (
+                        dia.data ===
+                        exclusaoPendente.dataDia
+                    );
+
+                }
+            );
+
+
+        if (
+            indiceDia ===
+            -1
+        ) {
+
+            return;
+
+        }
+
+
+        const dia =
+            dias[
+                indiceDia
+            ];
+
+
+        dia.movimentos =
+            dia.movimentos.filter(
+                function(item) {
+
+                    return (
+                        item.id !==
+                        exclusaoPendente.idMovimento
+                    );
+
+                }
+            );
+
+
+        if (
+            dia.movimentos.length ===
+                0 &&
+            Number(
+                dia.km ||
+                0
+            ) ===
+                0
+        ) {
+
+            dias.splice(
+                indiceDia,
+                1
+            );
+
+        }
+
+
+        salvarDias(
+            dias
+        );
+
+
+        exclusaoPendente =
+            null;
+
+
+        el(
+            "modalExclusao"
+        ).classList.add(
+            "oculto-modal"
+        );
+
+
+        atualizarTudo();
+
+
+        mensagem(
+            "Lançamento excluído com sucesso.",
+            "sucesso"
+        );
+
+    }
+);
+
+
+/* =========================
+HISTÓRICO
+========================= */
+
+function atualizarHistorico() {
+
+    const dias =
+        carregarDias();
+
+    const ano =
+        mesExibido.getFullYear();
+
+    const mes =
+        mesExibido.getMonth();
+
+
+    el(
+        "nomeMes"
+    ).textContent =
+        mesExibido.toLocaleDateString(
+            "pt-BR",
+            {
+                month:
+                    "long",
+
+                year:
+                    "numeric"
+            }
+        );
+
+
+    const filtrados =
+        dias
+            .filter(
+                function(dia) {
+
+                    const data =
+                        chaveParaData(
+                            dia.data
+                        );
+
+                    return (
+                        data.getFullYear() ===
+                            ano &&
+                        data.getMonth() ===
+                            mes
+                    );
+
+                }
+            )
+            .sort(
+                function(
+                    a,
+                    b
+                ) {
+
+                    return b.data.localeCompare(
+                        a.data
+                    );
+
+                }
+            );
+
+
+    const historico =
+        el(
+            "historico"
+        );
+
+    historico.innerHTML =
+        "";
+
+
+    if (
+        filtrados.length ===
+        0
+    ) {
+
+        const vazio =
+            document.createElement(
+                "div"
+            );
+
+        vazio.className =
+            "historico-vazio";
+
+        vazio.textContent =
+            "Nenhum lançamento neste mês.";
+
+        historico.appendChild(
+            vazio
+        );
+
+    }
+
+
+    filtrados.forEach(
+        function(dia) {
+
+            const calc =
+                calcularDia(
+                    dia
+                );
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+            card.className =
+                "dia-historico";
+
+
+            const cabecalho =
+                document.createElement(
+                    "div"
+                );
+
+            cabecalho.className =
+                "dia-cabecalho";
+
+
+            const informacoes =
+                document.createElement(
+                    "div"
+                );
+
+
+            const data =
+                document.createElement(
+                    "div"
+                );
+
+            data.className =
+                "dia-data";
+
+            data.textContent =
+                "📅 " +
+                formatarData(
+                    dia.data
+                );
+
+
+            const resumo =
+                document.createElement(
+                    "div"
+                );
+
+            resumo.className =
+                "dia-resumo";
+
+            resumo.textContent =
+                "Receitas " +
+                dinheiro(
+                    calc.receita
+                ) +
+                " • Gastos " +
+                dinheiro(
+                    calc.gastos
+                ) +
+                " • " +
+                calc.km +
+                " km";
+
+
+            informacoes.appendChild(
+                data
+            );
+
+            informacoes.appendChild(
+                resumo
+            );
+
+
+            const acoes =
+                document.createElement(
+                    "div"
+                );
+
+            acoes.className =
+                "dia-acoes";
+
+
+            const btnDetalhes =
+                document.createElement(
+                    "button"
+                );
+
+            btnDetalhes.type =
+                "button";
+
+            btnDetalhes.className =
+                "btn-detalhes";
+
+            btnDetalhes.textContent =
+                "Ver lançamentos ▼";
+
+
+            const btnEditar =
+                document.createElement(
+                    "button"
+                );
+
+            btnEditar.type =
+                "button";
+
+            btnEditar.className =
+                "btn-editar";
+
+            btnEditar.textContent =
+                "✏️ Editar dia";
+
+
+            btnEditar.addEventListener(
+                "click",
+                function() {
+
+                    editarDia(
+                        dia.data
+                    );
+
+                }
+            );
+
+
+            acoes.appendChild(
+                btnDetalhes
+            );
+
+            acoes.appendChild(
+                btnEditar
+            );
+
+
+            cabecalho.appendChild(
+                informacoes
+            );
+
+            cabecalho.appendChild(
+                acoes
+            );
+
+
+            const detalhes =
+                document.createElement(
+                    "div"
+                );
+
+            detalhes.className =
+                "detalhes-dia";
+
+
+            btnDetalhes.addEventListener(
+                "click",
+                function() {
+
+                    detalhes.classList.toggle(
+                        "aberto"
+                    );
+
+
+                    btnDetalhes.textContent =
+                        detalhes.classList.contains(
+                            "aberto"
+                        )
+                            ? "Ocultar ▲"
+                            : "Ver lançamentos ▼";
+
+                }
+            );
+
+
+            dia.movimentos.forEach(
+                function(item) {
+
+                    const linha =
+                        document.createElement(
+                            "div"
+                        );
+
+                    linha.className =
+                        "lancamento-historico";
+
+
+                    const info =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    const titulo =
+                        document.createElement(
+                            "strong"
+                        );
+
+                    titulo.className =
+                        item.tipo ===
+                            "ganho"
+                            ? "ganho"
+                            : "gasto";
+
+
+                    titulo.textContent =
+                        (
+                            item.tipo ===
+                            "ganho"
+                                ? "+"
+                                : "-"
+                        ) +
+                        " " +
+                        item.categoria +
+                        " • " +
+                        dinheiro(
+                            item.valor
+                        );
+
+
+                    info.appendChild(
+                        titulo
+                    );
+
+
+                    const textoDetalhes =
+                        criarDetalhesMovimento(
+                            item
+                        );
+
+
+                    if (
+                        textoDetalhes
+                    ) {
+
+                        const small =
+                            document.createElement(
+                                "small"
+                            );
+
+                        small.textContent =
+                            textoDetalhes;
+
+                        info.appendChild(
+                            small
+                        );
+
+                    }
+
+
+                    const excluir =
+                        document.createElement(
+                            "button"
+                        );
+
+                    excluir.type =
+                        "button";
+
+                    excluir.className =
+                        "btn-excluir";
+
+                    excluir.textContent =
+                        "🗑 Excluir";
+
+
+                    excluir.addEventListener(
+                        "click",
+                        function() {
+
+                            solicitarExclusaoLancamento(
+                                dia.data,
+                                item.id
+                            );
+
+                        }
+                    );
+
+
+                    linha.appendChild(
+                        info
+                    );
+
+                    linha.appendChild(
+                        excluir
+                    );
+
+                    detalhes.appendChild(
+                        linha
+                    );
+
+                }
+            );
+
+
+            card.appendChild(
+                cabecalho
+            );
+
+            card.appendChild(
+                detalhes
+            );
+
+            historico.appendChild(
+                card
+            );
+
+        }
+    );
+
+
+    atualizarIndicadores(
+        filtrados
+    );
+
+}
+
+
+/* =========================
+INDICADORES DO MÊS
+========================= */
+
+function atualizarIndicadores(dias) {
+
+    let receita =
+        0;
+
+    let gastos =
+        0;
+
+    let uber =
+        0;
+
+    let noventaNove =
+        0;
+
+    let particular =
+        0;
+
+    let combustivel =
+        0;
+
+    let km =
+        0;
+
+    let corridasUber =
+        0;
+
+    let corridas99 =
+        0;
+
+
+    dias.forEach(
+        function(dia) {
+
+            const calc =
+                calcularDia(
+                    dia
+                );
+
+            receita +=
+                calc.receita;
+
+            gastos +=
+                calc.gastos;
+
+            uber +=
+                calc.uber;
+
+            noventaNove +=
+                calc.noventaNove;
+
+            particular +=
+                calc.particular;
+
+            combustivel +=
+                calc.combustivel;
+
+            km +=
+                calc.km;
+
+            corridasUber +=
+                calc.corridasUber;
+
+            corridas99 +=
+                calc.corridas99;
+
+        }
+    );
+
+
+    const aluguel =
+        calcularAluguelMes(
+            mesExibido.getFullYear(),
+            mesExibido.getMonth()
+        );
+
+
+    const outrosGastos =
+        Math.max(
+            0,
+            gastos -
+            combustivel
+        );
+
+
+    const liquido =
+        receita -
+        gastos -
+        aluguel;
+
+
+    el(
+        "receitaMes"
+    ).textContent =
+        dinheiro(
+            receita
+        );
+
+
+    el(
+        "aluguelMes"
+    ).textContent =
+        dinheiro(
+            aluguel
+        );
+
+
+    el(
+        "pctAluguelMes"
+    ).textContent =
+        percentual(
+            aluguel,
+            receita
+        ) +
+        " da receita";
+
+
+    el(
+        "combustivelMes"
+    ).textContent =
+        dinheiro(
+            combustivel
+        );
+
+
+    el(
+        "pctCombustivelMes"
+    ).textContent =
+        percentual(
+            combustivel,
+            receita
+        ) +
+        " da receita";
+
+
+    el(
+        "outrosGastosMes"
+    ).textContent =
+        dinheiro(
+            outrosGastos
+        );
+
+
+    el(
+        "pctOutrosMes"
+    ).textContent =
+        percentual(
+            outrosGastos,
+            receita
+        ) +
+        " da receita";
+
+
+    el(
+        "liquidoMes"
+    ).textContent =
+        dinheiro(
+            liquido
+        );
+
+
+    el(
+        "pctLiquidoMes"
+    ).textContent =
+        percentual(
+            liquido,
+            receita
+        ) +
+        " ficou comigo";
+
+
+    el(
+        "uberMes"
+    ).textContent =
+        dinheiro(
+            uber
+        );
+
+
+    el(
+        "noventaNoveMes"
+    ).textContent =
+        dinheiro(
+            noventaNove
+        );
+
+
+    el(
+        "particularMes"
+    ).textContent =
+        dinheiro(
+            particular
+        );
+
+
+    el(
+        "corridasUberMes"
+    ).textContent =
+        corridasUber +
+        " corridas";
+
+
+    el(
+        "corridas99Mes"
+    ).textContent =
+        corridas99 +
+        " corridas";
+
+
+    el(
+        "kmMes"
+    ).textContent =
+        km.toLocaleString(
+            "pt-BR",
+            {
+                maximumFractionDigits:
+                    1
+            }
+        ) +
+        " km";
+
+
+    el(
+        "receitaKm"
+    ).textContent =
+        dinheiro(
+            km >
+                0
+                ? receita /
+                  km
+                : 0
+        );
+
+}
+
+
+/* =========================
+EDITAR
+========================= */
+
+function editarDia(data) {
+
+    const dia =
+        carregarDias()
+            .find(
+                function(item) {
+
+                    return (
+                        item.data ===
+                        data
+                    );
+
+                }
+            );
+
+
+    if (
+        !dia
+    ) {
+
+        return;
+
+    }
+
+
+    editandoData =
+        data;
+
+
+    el(
+        "dataLancamento"
+    ).value =
+        data;
+
+
+    el(
+        "kmDia"
+    ).value =
+        dia.km ||
+        "";
+
+
+    movimentosTemporarios =
+        dia.movimentos.map(
+            function(item) {
+
+                return Object.assign(
+                    {},
+                    item
+                );
+
+            }
+        );
+
+
+    atualizarListaMovimentos();
+
+
+    el(
+        "salvarDia"
+    ).textContent =
+        "💾 Atualizar dia";
+
+
+    el(
+        "cancelarEdicao"
+    ).style.display =
+        "block";
+
+
+    mensagem(
+        "Editando " +
+        formatarData(
+            data
+        ),
+        "sucesso"
+    );
+
+}
+
+
+function cancelarEdicao() {
+
+    editandoData =
+        null;
+
+    movimentosTemporarios =
+        [];
+
+
+    el(
+        "kmDia"
+    ).value =
+        "";
+
+
+    el(
+        "dataLancamento"
+    ).value =
+        dataChave(
+            new Date()
+        );
+
+
+    el(
+        "salvarDia"
+    ).textContent =
+        "💾 Salvar dia";
+
+
+    el(
+        "cancelarEdicao"
+    ).style.display =
+        "none";
+
+
+    atualizarListaMovimentos();
+
+    limparMensagem();
+
+}
+
+
+el(
+    "cancelarEdicao"
+).addEventListener(
+    "click",
+    cancelarEdicao
+);
+
+
+/* =========================
+NAVEGAÇÃO MÊS
+========================= */
+
+el(
+    "mesAnterior"
+).addEventListener(
+    "click",
+    function() {
+
+        mesExibido.setMonth(
+            mesExibido.getMonth() -
+            1
+        );
+
+        atualizarHistorico();
+
+    }
+);
+
+
+el(
+    "mesSeguinte"
+).addEventListener(
+    "click",
+    function() {
+
+        mesExibido.setMonth(
+            mesExibido.getMonth() +
+            1
+        );
+
+        atualizarHistorico();
+
+    }
+);
+
+
+/* =========================
+EXPORTAR EXCEL
+========================= */
+
+function formatarDataExcel(chave) {
+
+    return chaveParaData(
+        chave
+    ).toLocaleDateString(
+        "pt-BR"
+    );
+
+}
+
+
+function nomeDiaSemana(chave) {
+
+    return chaveParaData(
+        chave
+    ).toLocaleDateString(
+        "pt-BR",
+        {
+            weekday:
+                "long"
+        }
+    );
+
+}
+
+
+function ajustarColunas(planilha, larguras) {
+
+    planilha["!cols"] =
+        larguras.map(
+            function(largura) {
+
+                return {
+                    wch:
+                        largura
+                };
+
+            }
+        );
+
+}
+
+
+function formatarMoedaColuna(planilha, intervalo, coluna) {
+
+    for (
+        let linha =
+            intervalo.s.r + 1;
+        linha <=
+            intervalo.e.r;
+        linha++
+    ) {
+
+        const endereco =
+            XLSX.utils.encode_cell({
+                r:
+                    linha,
+                c:
+                    coluna
+            });
+
+        if (
+            planilha[endereco] &&
+            typeof planilha[endereco].v ===
+                "number"
+        ) {
+
+            planilha[endereco].z =
+                'R$ #,##0.00';
+
+        }
+
+    }
+
+}
+
+
+function criarAbaResumo(dias) {
+
+    const linhas = [
+        [
+            "Data",
+            "Dia da semana",
+            "Receita",
+            "Gastos",
+            "Saldo operacional",
+            "Uber",
+            "99",
+            "Particular",
+            "Combustível",
+            "Outros gastos",
+            "Corridas Uber",
+            "Corridas 99",
+            "Km"
+        ]
+    ];
+
+
+    let totalReceita =
+        0;
+
+    let totalGastos =
+        0;
+
+    let totalUber =
+        0;
+
+    let total99 =
+        0;
+
+    let totalParticular =
+        0;
+
+    let totalCombustivel =
+        0;
+
+    let totalOutros =
+        0;
+
+    let totalCorridasUber =
+        0;
+
+    let totalCorridas99 =
+        0;
+
+    let totalKm =
+        0;
+
+
+    dias.forEach(
+        function(dia) {
+
+            const calc =
+                calcularDia(
+                    dia
+                );
+
+            const outrosGastos =
+                Math.max(
+                    0,
+                    calc.gastos -
+                    calc.combustivel
+                );
+
+            linhas.push([
+                formatarDataExcel(
+                    dia.data
+                ),
+                nomeDiaSemana(
+                    dia.data
+                ),
+                calc.receita,
+                calc.gastos,
+                calc.receita -
+                    calc.gastos,
+                calc.uber,
+                calc.noventaNove,
+                calc.particular,
+                calc.combustivel,
+                outrosGastos,
+                calc.corridasUber,
+                calc.corridas99,
+                calc.km
+            ]);
+
+            totalReceita +=
+                calc.receita;
+
+            totalGastos +=
+                calc.gastos;
+
+            totalUber +=
+                calc.uber;
+
+            total99 +=
+                calc.noventaNove;
+
+            totalParticular +=
+                calc.particular;
+
+            totalCombustivel +=
+                calc.combustivel;
+
+            totalOutros +=
+                outrosGastos;
+
+            totalCorridasUber +=
+                calc.corridasUber;
+
+            totalCorridas99 +=
+                calc.corridas99;
+
+            totalKm +=
+                calc.km;
+
+        }
+    );
+
+
+    linhas.push([]);
+
+    linhas.push([
+        "TOTAL",
+        "",
+        totalReceita,
+        totalGastos,
+        totalReceita -
+            totalGastos,
+        totalUber,
+        total99,
+        totalParticular,
+        totalCombustivel,
+        totalOutros,
+        totalCorridasUber,
+        totalCorridas99,
+        totalKm
+    ]);
+
+
+    const planilha =
+        XLSX.utils.aoa_to_sheet(
+            linhas
+        );
+
+
+    ajustarColunas(
+        planilha,
+        [
+            13,
+            18,
+            14,
+            14,
+            18,
+            14,
+            14,
+            14,
+            14,
+            14,
+            14,
+            14,
+            12
+        ]
+    );
+
+
+    const intervalo =
+        XLSX.utils.decode_range(
+            planilha["!ref"]
+        );
+
+    [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ].forEach(
+        function(coluna) {
+
+            formatarMoedaColuna(
+                planilha,
+                intervalo,
+                coluna
+            );
+
+        }
+    );
+
+
+    return planilha;
+
+}
+
+
+function criarAbaSemanas(dias) {
+
+    const semanas =
+        {};
+
+
+    dias.forEach(
+        function(dia) {
+
+            const inicio =
+                inicioSemana(
+                    chaveParaData(
+                        dia.data
+                    )
+                );
+
+            semanas[
+                dataChave(
+                    inicio
+                )
+            ] =
+                true;
+
+        }
+    );
+
+
+    const alugueis =
+        carregarAlugueis();
+
+    Object.keys(
+        alugueis
+    ).forEach(
+        function(chave) {
+
+            semanas[chave] =
+                true;
+
+        }
+    );
+
+
+    const linhas = [
+        [
+            "Início da semana",
+            "Fim da semana",
+            "Receita",
+            "Gastos",
+            "Aluguel",
+            "Resultado líquido",
+            "Combustível",
+            "Outros gastos",
+            "Km",
+            "% Aluguel",
+            "% Combustível",
+            "% Outros gastos",
+            "% Ficou comigo"
+        ]
+    ];
+
+
+    Object.keys(
+        semanas
+    )
+        .sort()
+        .forEach(
+            function(chaveInicio) {
+
+                const inicio =
+                    chaveParaData(
+                        chaveInicio
+                    );
+
+                const fim =
+                    new Date(
+                        inicio
+                    );
+
+                fim.setDate(
+                    fim.getDate() +
+                    6
+                );
+
+                const dados =
+                    dadosSemana(
+                        inicio
+                    );
+
+                const outrosGastos =
+                    Math.max(
+                        0,
+                        dados.gastos -
+                        dados.combustivel
+                    );
+
+                const pct =
+                    function(valor) {
+
+                        if (
+                            dados.receita <=
+                            0
+                        ) {
+
+                            return 0;
+
+                        }
+
+                        return valor /
+                            dados.receita;
+
+                    };
+
+                linhas.push([
+                    formatarDataExcel(
+                        chaveInicio
+                    ),
+                    fim.toLocaleDateString(
+                        "pt-BR"
+                    ),
+                    dados.receita,
+                    dados.gastos,
+                    dados.aluguel,
+                    dados.liquido,
+                    dados.combustivel,
+                    outrosGastos,
+                    dados.km,
+                    pct(
+                        dados.aluguel
+                    ),
+                    pct(
+                        dados.combustivel
+                    ),
+                    pct(
+                        outrosGastos
+                    ),
+                    pct(
+                        dados.liquido
+                    )
+                ]);
+
+            }
+        );
+
+
+    const planilha =
+        XLSX.utils.aoa_to_sheet(
+            linhas
+        );
+
+
+    ajustarColunas(
+        planilha,
+        [
+            18,
+            18,
+            14,
+            14,
+            14,
+            18,
+            14,
+            14,
+            12,
+            14,
+            16,
+            17,
+            17
+        ]
+    );
+
+
+    const intervalo =
+        XLSX.utils.decode_range(
+            planilha["!ref"]
+        );
+
+    [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ].forEach(
+        function(coluna) {
+
+            formatarMoedaColuna(
+                planilha,
+                intervalo,
+                coluna
+            );
+
+        }
+    );
+
+
+    for (
+        let linha =
+            1;
+        linha <=
+            intervalo.e.r;
+        linha++
+    ) {
+
+        [
+            9,
+            10,
+            11,
+            12
+        ].forEach(
+            function(coluna) {
+
+                const endereco =
+                    XLSX.utils.encode_cell({
+                        r:
+                            linha,
+                        c:
+                            coluna
+                    });
+
+                if (
+                    planilha[endereco]
+                ) {
+
+                    planilha[endereco].z =
+                        "0.0%";
+
+                }
+
+            }
+        );
+
+    }
+
+
+    return planilha;
+
+}
+
+
+function criarAbaDia(dia) {
+
+    const calc =
+        calcularDia(
+            dia
+        );
+
+    const inicio =
+        inicioSemana(
+            chaveParaData(
+                dia.data
+            )
+        );
+
+    const aluguelSemana =
+        obterAluguelSemana(
+            inicio
+        );
+
+    const linhas = [
+        [
+            "Rota Fácil - Detalhes do dia"
+        ],
+        [],
+        [
+            "Data",
+            formatarDataExcel(
+                dia.data
+            )
+        ],
+        [
+            "Dia da semana",
+            nomeDiaSemana(
+                dia.data
+            )
+        ],
+        [
+            "Receita",
+            calc.receita
+        ],
+        [
+            "Gastos",
+            calc.gastos
+        ],
+        [
+            "Saldo operacional",
+            calc.receita -
+                calc.gastos
+        ],
+        [
+            "Km rodados",
+            calc.km
+        ],
+        [
+            "Uber",
+            calc.uber
+        ],
+        [
+            "99",
+            calc.noventaNove
+        ],
+        [
+            "Particular",
+            calc.particular
+        ],
+        [
+            "Corridas Uber",
+            calc.corridasUber
+        ],
+        [
+            "Corridas 99",
+            calc.corridas99
+        ],
+        [
+            "Aluguel da semana",
+            aluguelSemana
+        ],
+        [
+            "Observação",
+            "O aluguel é semanal e não foi descontado do saldo operacional deste dia."
+        ],
+        [],
+        [
+            "Tipo",
+            "Categoria",
+            "Valor",
+            "Corridas",
+            "Combustível",
+            "Preço por litro",
+            "Litros",
+            "Descrição"
+        ]
+    ];
+
+
+    dia.movimentos.forEach(
+        function(item) {
+
+            linhas.push([
+                item.tipo ===
+                    "ganho"
+                    ? "Ganho"
+                    : "Gasto",
+                item.categoria ||
+                    "",
+                Number(
+                    item.valor ||
+                    0
+                ),
+                Number(
+                    item.corridas ||
+                    0
+                ) ||
+                    "",
+                item.combustivelTipo ||
+                    "",
+                Number(
+                    item.precoLitro ||
+                    0
+                ) ||
+                    "",
+                Number(
+                    item.litros ||
+                    0
+                ) ||
+                    "",
+                item.descricao ||
+                    ""
+            ]);
+
+        }
+    );
+
+
+    const planilha =
+        XLSX.utils.aoa_to_sheet(
+            linhas
+        );
+
+
+    ajustarColunas(
+        planilha,
+        [
+            18,
+            24,
+            14,
+            12,
+            15,
+            16,
+            12,
+            36
+        ]
+    );
+
+
+    // Formata os valores do resumo do dia.
+    [
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        13
+    ].forEach(
+        function(indiceLinha) {
+
+            const endereco =
+                XLSX.utils.encode_cell({
+                    r:
+                        indiceLinha,
+                    c:
+                        1
+                });
+
+            if (
+                planilha[endereco] &&
+                typeof planilha[endereco].v ===
+                    "number"
+            ) {
+
+                planilha[endereco].z =
+                    'R$ #,##0.00';
+
+            }
+
+        }
+    );
+
+
+    // Formata os valores dos lançamentos.
+    for (
+        let linha =
+            17;
+        linha <
+            linhas.length;
+        linha++
+    ) {
+
+        [
+            2,
+            5
+        ].forEach(
+            function(coluna) {
+
+                const endereco =
+                    XLSX.utils.encode_cell({
+                        r:
+                            linha,
+                        c:
+                            coluna
+                    });
+
+                if (
+                    planilha[endereco] &&
+                    typeof planilha[endereco].v ===
+                        "number"
+                ) {
+
+                    planilha[endereco].z =
+                        'R$ #,##0.00';
+
+                }
+
+            }
+        );
+
+    }
+
+
+    return planilha;
+
+}
+
+
+function exportarExcelCompleto() {
+
+    if (
+        typeof XLSX ===
+        "undefined"
+    ) {
+
+        mensagem(
+            "Não foi possível carregar o gerador de Excel. Verifique a internet e tente novamente.",
+            "erro"
+        );
+
+        return;
+
+    }
+
+
+    const dias =
+        carregarDias()
+            .slice()
+            .sort(
+                function(a, b) {
+
+                    return a.data.localeCompare(
+                        b.data
+                    );
+
+                }
+            );
+
+
+    if (
+        dias.length ===
+        0
+    ) {
+
+        mensagem(
+            "Ainda não existem dados para exportar.",
+            "erro"
+        );
+
+        return;
+
+    }
+
+
+    try {
+
+        const pasta =
+            XLSX.utils.book_new();
+
+
+        XLSX.utils.book_append_sheet(
+            pasta,
+            criarAbaResumo(
+                dias
+            ),
+            "Resumo"
+        );
+
+
+        XLSX.utils.book_append_sheet(
+            pasta,
+            criarAbaSemanas(
+                dias
+            ),
+            "Semanas"
+        );
+
+
+        dias.forEach(
+            function(dia) {
+
+                const partes =
+                    dia.data.split(
+                        "-"
+                    );
+
+                const nomeAba =
+                    partes[2] +
+                    "-" +
+                    partes[1] +
+                    "-" +
+                    partes[0];
+
+                XLSX.utils.book_append_sheet(
+                    pasta,
+                    criarAbaDia(
+                        dia
+                    ),
+                    nomeAba
+                );
+
+            }
+        );
+
+
+        const nomeArquivo =
+            "Rota-Facil-" +
+            dataChave(
+                new Date()
+            ) +
+            ".xlsx";
+
+
+        XLSX.writeFile(
+            pasta,
+            nomeArquivo
+        );
+
+
+        mensagem(
+            "Planilha Excel gerada com sucesso.",
+            "sucesso"
+        );
+
+    }
+
+    catch (
+        erro
+    ) {
+
+        console.error(
+            erro
+        );
+
+        mensagem(
+            "Erro ao gerar a planilha Excel.",
+            "erro"
+        );
+
+    }
+
+}
+
+
+el(
+    "exportarExcel"
+).addEventListener(
+    "click",
+    exportarExcelCompleto
+);
+
+
+/* =========================
+BACKUP
+========================= */
+
+el(
+    "exportarBackup"
+).addEventListener(
+    "click",
+    function() {
+
+        const backup = {
+
+            app:
+                "Rota Fácil",
+
+            versao:
+                VERSAO_APP,
+
+            criadoEm:
+                new Date()
+                    .toISOString(),
+
+            dados:
+                carregarDias()
+
+        };
+
+
+        const blob =
+            new Blob(
+                [
+                    JSON.stringify(
+                        backup,
+                        null,
+                        2
+                    )
+                ],
+                {
+                    type:
+                        "application/json"
+                }
+            );
+
+
+        const url =
+            URL.createObjectURL(
+                blob
+            );
+
+
+        const link =
+            document.createElement(
+                "a"
+            );
+
+
+        link.href =
+            url;
+
+
+        link.download =
+            "rota-facil-backup-" +
+            dataChave(
+                new Date()
+            ) +
+            ".json";
+
+
+        document.body.appendChild(
+            link
+        );
+
+
+        link.click();
+
+
+        link.remove();
+
+
+        URL.revokeObjectURL(
+            url
+        );
+
+    }
+);
+
+
+/* =========================
+RESTAURAR
+========================= */
+
+el(
+    "importarBackup"
+).addEventListener(
+    "click",
+    function() {
+
+        el(
+            "arquivoBackup"
+        ).click();
+
+    }
+);
+
+
+el(
+    "arquivoBackup"
+).addEventListener(
+    "change",
+    function(evento) {
+
+        const arquivo =
+            evento.target.files[0];
+
+
+        if (
+            !arquivo
+        ) {
+
+            return;
+
+        }
+
+
+        const leitor =
+            new FileReader();
+
+
+        leitor.onload =
+            function() {
+
+                try {
+
+                    const backup =
+                        JSON.parse(
+                            leitor.result
+                        );
+
+
+                    const dados =
+                        Array.isArray(
+                            backup
+                        )
+                            ? backup
+                            : backup.dados;
+
+
+                    if (
+                        !Array.isArray(
+                            dados
+                        )
+                    ) {
+
+                        throw new Error(
+                            "Backup inválido"
+                        );
+
+                    }
+
+
+                    if (
+                        confirm(
+                            "Restaurar este backup? Os dados atuais serão substituídos."
+                        )
+                    ) {
+
+                        salvarDias(
+                            dados
+                        );
+
+
+                        atualizarTudo();
+
+
+                        mensagem(
+                            "Backup restaurado com sucesso.",
+                            "sucesso"
+                        );
+
+                    }
+
+                }
+
+                catch (
+                    erro
+                ) {
+
+                    console.error(
+                        erro
+                    );
+
+
+                    mensagem(
+                        "Erro ao importar o backup.",
+                        "erro"
+                    );
+
+                }
+
+            };
+
+
+        leitor.readAsText(
+            arquivo
+        );
+
+
+        evento.target.value =
+            "";
+
+    }
+);
+
+
+/* =========================
+ATUALIZAR TUDO
+========================= */
+
+function atualizarTudo() {
+
+    atualizarSemana();
+
+    atualizarHistorico();
+
+}
+
+
+/* =========================
+INICIAR
+========================= */
+
+el(
+    "dataHoje"
+).textContent =
+    new Date()
+        .toLocaleDateString(
+            "pt-BR",
+            {
+                weekday:
+                    "long",
+
+                day:
+                    "2-digit",
+
+                month:
+                    "long",
+
+                year:
+                    "numeric"
+            }
+        );
+
+
+el(
+    "dataLancamento"
+).value =
+    dataChave(
+        new Date()
+    );
+
+
+atualizarCategorias();
+
+atualizarListaMovimentos();
+
+atualizarTudo();
+
+</script>
+
+</body>
+
+</html>
